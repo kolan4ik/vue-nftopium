@@ -1,0 +1,348 @@
+// Страница коллекции
+.collection-page {
+
+  // Верхняя панель
+  &-top {
+    position: relative;
+    z-index: 10;
+
+    @include respond-before('xs') {
+      margin-top: -20px;
+    }
+
+    .container {
+      display: flex;
+      align-items: flex-end;
+      @include respond-before('xs') {
+      }
+    }
+
+    &__left {
+      width: 45%;
+      @include respond-before('xs') {
+      }
+
+      @include respond-before('lg') {
+        width: 68%;
+      }
+    }
+
+    &__right {
+      margin-left: auto;
+      width: 47%;
+
+      @include respond-before('xs') {
+      }
+
+      @include respond-before('lg') {
+        width: 32%;
+      }
+    }
+  }
+
+  // Блок интро с параллаксом
+  &-intro {
+    position: relative;
+    margin-bottom: 45px;
+
+    .container {
+      position: relative;
+    }
+
+    &__bg-left,
+    &__bg-right,
+    &__bg-logo {
+      position: absolute;
+      z-index: 1;
+    }
+
+    &__bg-left,
+    &__bg-right {
+      width: 500px;
+
+      @include respond-before('md') {
+        width: auto;
+      }
+    }
+    &__bg-left {
+      left: -230px;
+      top: 50px;
+
+      @include respond-before('xs') {
+        left: -230px;
+        top: 140px;
+      }
+      @include respond-before('md') {
+        left: -100%;
+        top: 100px;
+      }
+      @include respond-before('lg') {
+        left: -90%;
+        top: 100px;
+      }
+    }
+
+    &__bg-right {
+      right: -125%;
+      top: -150px;
+
+      @include respond-before('xs') {
+        right: -380px;
+        top: -150px;
+      }
+      @include respond-before('md') {
+        right: -145%;
+        top: -200px;
+      }
+      @include respond-before('lg') {
+        right: -125%;
+        top: -150px;
+      }
+    }
+
+    &__bg-logo {
+      top: 15%;
+      left: 0;
+      right: 0;
+      z-index: 3;
+
+      @include respond-before('md') {
+        top: 15%;
+      }
+      @include respond-before('xl') {
+        top: 15%;
+      }
+
+      img {
+        display: block;
+        margin: auto;
+      }
+    }
+
+    // center persona
+    &__pers {
+      position: relative;
+      z-index: 5;
+      margin-bottom: 40px;
+
+      @include respond-before('md') {
+        margin-top: 30px;
+        margin-left: -120px;
+        margin-bottom: 0;
+      }
+      @include respond-before('lg') {
+        margin-top: -70px;
+        margin-left: 0;
+      }
+
+      img {
+
+      }
+    }
+
+    &__text {
+      color: #707070;
+      max-width: 220px;
+      z-index: 5;
+      //transition: all .5s ease-in-out;
+
+      @include respond-before('md') {
+        position: absolute;
+        right: 60px;
+        bottom: 25%;
+        //bottom: 180px;
+      }
+      @include respond-before('lg') {
+        right: 80px;
+      }
+    }
+  }
+
+  // Блок автора
+  &__author-name {
+    color: #707070;
+    margin-bottom: 5px;
+  }
+
+  &__author-logo img {
+    max-height: 20px;
+
+    @include respond-before('pre-md') {
+      max-height: 32px;
+    }
+  }
+
+  // Кнопка для скролла вниз
+  &-action {
+    display: flex;
+    font-weight: 600;
+    align-items: center;
+    line-height: 1.125em;
+
+    @include respond-before('pre-md') {
+      font-size: 20px;
+    }
+    @include respond-before('md') {
+      font-size: 24px;
+
+      &:hover {
+        color: var(--color-primary);
+      }
+      &:hover &__icon {
+        rect {
+          fill: var(--color-primary);
+        }
+      }
+    }
+
+    &__icon {
+      width: 40px;
+      display: block;
+      margin-right: 15px;
+
+      @include respond-before('pre-md') {
+        margin-right: 20px;
+      }
+      @include respond-before('md') {
+        width: 50px;
+      }
+
+      @include darkmode() {
+        rect {
+          fill: #fff;
+        }
+        path {
+          fill: var(--body-bg);
+        }
+      }
+    }
+  }
+
+  // author about and socials links
+  &__author-about {
+    @include respond-before('md') {
+      display: flex;
+    }
+  }
+  &__author-left {
+
+    @include respond-before('md') {
+      width: 41.6666666667%;
+    }
+  }
+
+  &__author-txt {
+    @include fontCocoSharpXS('extralight');
+    margin-bottom: 45px;
+
+    @include respond-before('md') {
+      margin-top: 80px;
+    }
+
+    p {
+      @include respond-before('md') {
+        font-size: 20px;
+        line-height: 30px;
+      }
+    }
+  }
+
+  &__author-socials {
+  }
+
+  &__author-photos {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    margin-top: 40px;
+
+    @include respond-before('md') {
+      width: 58.3333333333%;
+      padding-left: 50px;
+      margin-top: 0;
+    }
+    @include respond-before('lg') {
+      padding-left: 70px;
+    }
+    @include respond-before('xl') {
+      padding-left: 90px;
+    }
+
+    img {
+      max-width: 100px;
+      margin: 0 5px;
+      position: relative;
+
+      @include respond-before('md') {
+        max-width: 185px;
+      }
+      @include respond-before('xl') {
+        max-width: 250px;
+      }
+
+      &:nth-of-type(1) { top: 0; margin-left: 0; }
+      &:nth-of-type(2) { top: 40px; }
+      &:nth-of-type(3) { top: 15px; }
+
+      @include respond-before('md') {
+        &:nth-of-type(1) { top: 0; }
+        &:nth-of-type(2) { top: 80px; }
+        &:nth-of-type(3) { top: 30px; }
+      }
+    }
+  }
+}
+.social-block {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  &__group {
+    @include fontCocoSharpXS('extralight');
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    padding: 8px 15px;
+    background: var(--color-gray);
+    min-width: 235px;
+
+    @include darkmode() {
+      background: #242426;
+    }
+  }
+
+  &__icon {
+    margin-right: 15px;
+  }
+
+  &__txt {
+  }
+
+  &__verify {
+    margin-left: 10px;
+  }
+}
+
+.section-author {
+  overflow: hidden;
+  padding-bottom: 80px;
+  margin-bottom: 80px;
+
+  @include respond-before('md') {
+    margin-bottom: 130px;
+  }
+}
+
+.section-collection {
+  @include respond-before('md') {
+    margin-bottom: 130px;
+  }
+}
+
+
+
+

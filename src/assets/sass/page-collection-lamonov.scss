@@ -1,0 +1,266 @@
+@import "variables";
+@import "general/mixins";
+
+@mixin fontMontserrat() {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.page-lamonov {
+  --color-primary: #51a8f5;
+  $self: &;
+  @include fontMontserrat();
+  color: #000;
+  background: #fff; // url("#{$images}/page-kraft/bg-page.jpg") no-repeat 50% 0;
+  background-size: cover;
+
+  .container {
+
+    @include respond-before('xl') {
+      max-width: 1050px;
+    }
+    @include respond-before('xxl') {
+      max-width: 1200px;
+    }
+    @include respond-before('xxxl') {
+      max-width: 1400px;
+    }
+  }
+
+  .header--sticky {
+    background: #000;
+  }
+
+  p {
+    margin: 10px 0;
+  }
+
+  &-intro__bg-mobile,
+  &-intro {
+    background: #000 url("#{$images}/page-lamonov/cover.jpg") no-repeat 75% 100%;
+    background-size: cover;
+
+    @include respond-before('pre-md') {
+      background-position: 66% 100%;
+    }
+    @include respond-before('md') {
+      background-position: 60% 100%;
+    }
+    @include respond-before('lg') {
+      background-position: 70% 100%;
+    }
+    @include respond-before('xl') {
+      background-position: 70% 100%;
+    }
+    @include respond-before('xxl') {
+      background-position: 100% 100%;
+    }
+  }
+
+  &-intro__bg-mobile {
+    height: 300px;
+    padding-top: 80px;
+    margin-top: -80px; // like .app CSS class in header.scss
+
+    @include respond-before('sm') {
+      margin-top: -120px;
+      padding-top: 120px;
+    }
+
+    @include respond-before('md') {
+      display: none;
+    }
+  }
+
+  &-intro {
+    color: #fff;
+    position: relative;
+    z-index: 2;
+    //max-height: 100vh;
+    padding-top: 80px;
+    margin-top: -80px; // like .app CSS class in header.scss
+    margin-bottom: 80px;
+
+    @include respond-to('md') {
+      background: none;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 2;
+      height: 100%;
+      background: rgb(0,0,0);
+      background: -moz-linear-gradient(0deg, rgba(0,0,0,0) 80%, rgba(0,0,0,0.7483368347338936) 100%);
+      background: -webkit-linear-gradient(0deg, rgba(0,0,0,0) 80%, rgba(0,0,0,0.7483368347338936) 100%);
+      background: linear-gradient(0deg, rgba(0,0,0,0) 80%, rgba(0,0,0,0.7483368347338936) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#000000",GradientType=1);
+
+      @include respond-before('md') {
+        z-index: -1;
+      }
+    }
+
+    @include respond-before('sm') {
+      margin-top: -100px;
+      padding-top: 120px;
+    }
+    @include respond-before('pre-md') {
+      margin-top: -120px;
+    }
+    @include respond-before('xl') {
+      margin-bottom: 120px;
+    }
+    @include respond-before('xxl') {
+      padding-top: 190px;
+    }
+    @include respond-before('xxxl') {
+      padding-top: 250px;
+    }
+
+    &__box {
+      position: relative;
+      color: #000;
+      padding: 30px 0 0;
+
+
+      @include respond-before('pre-md') {
+        //max-width: 350px;
+      }
+      @include respond-before('md') {
+        padding: 30px;
+        bottom: -30px;
+        max-width: 400px;
+        background: rgba(#000, .7);
+        color: #fff;
+      }
+      @include respond-before('lg') {
+        max-width: 400px;
+      }
+      @include respond-before('xl') {
+        max-width: 500px;
+        padding: 40px;
+        bottom: -40px;
+      }
+
+      @include respond-before('xl') {
+        padding: 60px;
+        bottom: -60px;
+      }
+    }
+
+    &__title {
+      margin-bottom: 20px;
+    }
+
+    &__txt {
+      p {
+        line-height: 1.5em;
+      }
+    }
+  }
+
+  &-works {
+  }
+
+  &-work {
+    position: relative;
+    padding: 50px 0;
+    background: no-repeat 50% 50%;
+    background-size: cover;
+    z-index: 1;
+
+    @include respond-before('xl') {
+      padding: 75px 0;
+    }
+
+    .container {
+      padding-left: 40px;
+      padding-right: 40px;
+      position: relative;
+
+      @include respond-before('md') {
+        display: flex;
+        align-items: center;
+      }
+      @include respond-before('xl') {
+        padding-left: 40px;
+        padding-right: 40px;
+      }
+    }
+
+    &__img {
+      margin-bottom: 30px;
+
+      @include respond-before('md') {
+        width: 40%;
+        margin-bottom: 0;
+      }
+
+      img {
+        margin: auto;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+
+        @include respond-before('lg') {
+          display: block;
+        }
+      }
+    }
+
+    &__about {
+      @include respond-before('md') {
+        width: 53%;
+        margin-left: auto;
+      }
+    }
+
+    &__title {
+      font-weight: 800;
+      font-size: 24px;
+      line-height: 1.35em;
+      margin: 0 0 20px;
+
+      @include respond-before('sm') {
+        font-size: 30px;
+      }
+      @include respond-before('md') {
+        font-size: 32px;
+      }
+      @include respond-before('lg') {
+        font-size: 34px;
+      }
+      @include respond-before('xl') {
+        font-size: 36px;
+      }
+      @include respond-before('xxxl') {
+        font-size: 40px;
+      }
+    }
+
+    &__txt {
+
+      p {
+        font-size: 16px;
+        @include respond-before('xs') {
+          font-size: 18px;
+        }
+        @include respond-before('pre-md') {
+          font-size: 20px;
+        }
+        @include respond-before('xl') {
+          font-size: 24px;
+        }
+        @include respond-before('xxl') {
+          font-size: 26px;
+        }
+        @include respond-before('xxxl') {
+          font-size: 30px;
+        }
+      }
+    }
+  }
+}

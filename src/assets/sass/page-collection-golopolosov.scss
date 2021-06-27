@@ -1,0 +1,381 @@
+@import "variables";
+@import "general/mixins";
+
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('#{$font-path}/ProximaNova-Light.eot');
+  src: url('#{$font-path}/ProximaNova-Light.eot?#iefix') format('embedded-opentype'),
+  url('#{$font-path}/ProximaNova-Light.woff2') format('woff2'),
+  url('#{$font-path}/ProximaNova-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+@mixin fontProximaNova($weight: light) {
+  font-family: 'Proxima Nova', sans-serif;
+  font-weight: 300;
+}
+
+.page-golopolosov {
+  --color-primary: #51a8f5;
+  $self: &;
+  color: #fff;
+  background: #030303;
+  @include fontProximaNova();
+
+  .pluses {
+    position: relative;
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      background: url("#{$images}/page-golopolosov/plus.png") no-repeat;
+      background-size: contain;
+      left: 20px;
+      right: 20px;
+      height: 36px;
+      z-index: 2;
+
+      @include respond-before('lg') {
+        left: 0;
+        right: 0;
+      }
+    }
+
+    &:before {
+      top: 0;
+    }
+    &:after {
+      bottom: 0;
+    }
+  }
+
+  .container {
+    @include respond-before('xl') {
+      max-width: 1120px;
+    }
+    @include respond-before('xxl') {
+      //max-width: 1200px;
+    }
+    @include respond-before('xxxl') {
+      //max-width: 1400px;
+    }
+  }
+
+  .header--sticky {
+    background: #030303;
+  }
+
+  p {
+    margin: 10px 0;
+  }
+
+  &-intro {
+    color: #fff;
+    position: relative;
+    z-index: 2;
+    padding-top: 80px;
+    margin-top: -80px; // like .app CSS class in header.scss
+    margin-bottom: 70px;
+    pointer-events: none;
+
+    @include respond-before('sm') {
+      margin-top: -100px;
+      padding-top: 120px;
+    }
+    @include respond-before('pre-md') {
+      margin-top: -120px;
+    }
+    @include respond-before('md') {
+      margin-bottom: 16px;
+    }
+    @include respond-before('lg') {
+
+    }
+    @include respond-before('xl') {
+    }
+
+    .container {
+      position: relative;
+    }
+
+    .pluses {
+      &:before {
+        top: 40px;
+      }
+      &:after {
+        bottom: 88px;
+      }
+    }
+
+    &__hero {
+      position: relative;
+      margin-left: -20px;
+      margin-right: -20px;
+
+      @include respond-before('xs') {
+        //width: 350px;
+      }
+      @include respond-before('sm') {
+
+      }
+      @include respond-before('md') {
+        max-width: 500px;
+        width: auto;
+        margin: 0;
+        left: -100px;
+      }
+      @include respond-before('lg') {
+        max-width: 580px;
+        left: -140px;
+      }
+      @include respond-before('xl') {
+        max-width: 700px;
+        left: -140px;
+      }
+    }
+
+    &__light-l,
+    &__light-r {
+      position: absolute;
+      z-index: 3;
+    }
+
+    &__light-l {
+      top: 55px;
+      left: 0;
+      max-width: 200px;
+
+      @include respond-before('xs') {
+        max-width: 250px;
+      }
+      @include respond-before('sm') {
+        max-width: 310px;
+      }
+      @include respond-before('md') {
+        top: 95px;
+        left: 15px;
+        max-width: 320px;
+      }
+      @include respond-before('lg') {
+        top: 115px;
+        left: 25px;
+        max-width: 360px;
+      }
+      @include respond-before('xl') {
+        top: 115px;
+        left: 25px;
+        max-width: 100%;
+      }
+    }
+    &__light-r {
+      top: 100px;
+      right: -10px;
+      max-width: 100px;
+
+      @include respond-before('xs') {
+        top: 100px;
+        right: -30px;
+        max-width: 130px;
+      }
+      @include respond-before('sm') {
+        top: 140px;
+        right: -20px;
+        max-width: 130px;
+      }
+      @include respond-before('md') {
+        top: 150px;
+        right: -60px;
+        max-width: 200px;
+      }
+      @include respond-before('lg') {
+        top: 190px;
+        right: -60px;
+        max-width: 220px;
+      }
+      @include respond-before('xl') {
+        top: 190px;
+        right: -90px;
+        max-width: 100%;
+      }
+    }
+
+    &__logo {
+      position: relative;
+      margin: -30px auto 0;
+      max-width: 180px;
+
+      @include respond-before('xs') {
+        max-width: 200px;
+      }
+
+      @include respond-before('md') {
+        position: absolute;
+        margin: 0;
+        top: 33%;
+        right: 5%;
+        max-width: 270px;
+      }
+      @include respond-before('lg') {
+        top: 33%;
+        right: 5%;
+        max-width: 100%;
+      }
+      @include respond-before('xxl') {
+        right: 60px;
+      }
+    }
+
+    &-img {
+      position: relative;
+      z-index: 2;
+    }
+  }
+
+  &-about {
+
+    &__title {
+      max-width: 470px;
+      margin-bottom: 40px;
+
+      @include respond-before('md') {
+        margin-bottom: 70px;
+      }
+    }
+
+    &__descr {
+      border-left: 2px solid #fff;
+      padding-left: 30px;
+
+      @include respond-before('md') {
+        padding-left: 75px;
+        margin-left: 15px;
+      }
+      @include respond-before('lg') {
+        padding-left: 75px;
+        margin-left: 15px;
+      }
+      @include respond-before('xl') {
+        padding-left: 95px;
+        margin-left: 15px;
+      }
+
+      p {
+        font-size: 18px;
+        line-height: 1.2em;
+        margin-bottom: 20px;
+
+        @include respond-before('sm') {
+          font-size: 20px;
+        }
+        @include respond-before('md') {
+          font-size: 26px;
+        }
+        @include respond-before('lg') {
+          font-size: 30px;
+        }
+        @include respond-before('xl') {
+          font-size: 34px;
+        }
+      }
+    }
+  }
+
+  &-partners {
+    margin-top: 100px;
+    margin-bottom: 30px;
+
+    @include respond-before('md') {
+      margin-top: 200px;
+    }
+    &__imgs {
+      margin: auto;
+      padding: 0 6%;
+    }
+
+    .pluses {
+      &:before {
+        top: -50px;
+      }
+      &:after {
+        bottom: -55px;
+      }
+    }
+  }
+
+  &-works {
+    .pluses {
+      &:before {
+        top: 40px;
+      }
+      &:after {
+        bottom: -20px;
+      }
+    }
+  }
+
+  &-collection {
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+
+  &-end {
+    margin-top: 80px;
+
+    @include respond-before('md') {
+      margin-top: 115px;
+    }
+    img {
+      margin: auto;
+      display: block;
+    }
+
+    &__img {
+      max-width: 200px;
+      margin: auto;
+
+      @include respond-before('xs') {
+        max-width: 240px;
+      }
+      @include respond-before('sm') {
+        max-width: 240px;
+      }
+      @include respond-before('md') {
+        max-width: 400px;
+      }
+    }
+
+    .pluses {
+      @include respond-to('lg') {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 36px;
+      }
+
+      &:before {
+        display: none;
+      }
+      &:after {
+        bottom: -13px;
+
+        @include respond-before('xs') {
+          //bottom: -12px;
+        }
+        @include respond-before('sm') {
+          //bottom: -8px;
+        }
+        @include respond-before('md') {
+          bottom: -6px;
+        }
+        @include respond-before('lg') {
+          bottom: 0;
+        }
+      }
+    }
+  }
+}

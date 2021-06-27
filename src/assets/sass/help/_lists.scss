@@ -1,0 +1,27 @@
+.list {
+  list-style: none inside none;
+  margin: 0;
+  padding: 0;
+
+  // отступ от предыдущего элемента
+  &__item {
+    margin-bottom: px_to_vw(mobile, 10px);
+
+    @include respond-before('md') {
+      margin-bottom: px_to_vw(desktop, 10px);
+    }
+
+    &:last-child,
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+
+    // Активный пункт меню
+    &--active a,
+    &.active a,
+    &.current a {
+
+    }
+  }
+}

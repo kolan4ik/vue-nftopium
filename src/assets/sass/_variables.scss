@@ -1,0 +1,46 @@
+// COLORS VARIABLES THEME
+$color-link: var(--base-text);//getColor('black');
+$color-placeholder: rgba(var(--placeholder-color), .7);
+$color-req: var(--error-color);
+$color-error: var(--error-color);
+$color-success: #22b573; //#4CAF50;
+
+///////////////////////////////////
+// PATH
+/////////////////////////////////////
+$img: "../img";
+$images: "../images";
+$font-path: "../fonts";
+
+///////////////////////////////////
+// MICROANIMATION
+/////////////////////////////////////
+$cubic-bezier: cubic-bezier(.33, 1.08, .59, .95);
+$ease: ease;
+$transition: 300ms $ease;
+$transition-500: 500ms $ease;
+$glass: .8; // opacity для эффекта стек
+
+$sc-container--pd: 20px;
+$sc-container--pd-sm: 20px;
+$sc-container--pd-md: 50px;
+$sc-container--pd-lg: 50px;
+$sc-container--pd-xl: 45px;
+$sc-container--pd-xxl: 95px;
+
+$letter-spc-2: calc(-1em / 50); //2%
+$letter-spc-4: calc(-1em / 25); //4%
+
+///////////////////////////////////
+// BREAKPOINTS
+/////////////////////////////////////
+$breakpoints: (
+  'xs': 360px,
+  'sm': 414px,
+  'pre-md': 540px,
+  'md': 768px,
+  'lg': 1024px,
+  'xl': 1200px,
+  'xxl': 1440px,
+  'xxxl': 1600px,
+);

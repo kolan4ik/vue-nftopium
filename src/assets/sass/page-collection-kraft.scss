@@ -1,0 +1,532 @@
+@import "variables";
+@import "general/mixins";
+
+@mixin fontRobotoCond() {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: bold;
+  font-style: italic;
+}
+
+
+.page-kraft {
+  --color-primary: #b69d68;
+  $self: &;
+  background: #020204 url("#{$images}/page-kraft/bg-page.jpg") no-repeat 50% 0;
+  background-size: cover;
+  @include fontRobotoCond;
+
+  .container {
+    max-width: 1200px;
+
+    @include respond-before('xxl') {
+      max-width: 1200px;
+    }
+    @include respond-before('xxxl') {
+      max-width: 1400px;
+    }
+  }
+
+  .header--sticky {
+    background: #020204;
+  }
+
+  .collection-page {
+
+  }
+
+  &-top {
+    position: relative;
+    z-index: 10;
+
+    .container {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    &__author {
+      &-name {
+        color: #fff;
+        margin-bottom: 5px;
+        font-size: 18px;
+        line-height: 1.05em;
+        font-style: normal;
+        font-weight: normal;
+        @include fontBebasNeue();
+
+        @include respond-before('xs') {
+          font-size: 22px;
+        }
+        @include respond-before('md') {
+          font-size: 30px;
+        }
+        @include respond-before('xxl') {
+          font-size: 40px;
+        }
+      }
+
+      &-logo img {
+        max-height: 20px;
+
+        @include respond-before('xs') {
+          max-height: 25px;
+        }
+        @include respond-before('pre-md') {
+          max-height: 40px;
+        }
+        @include respond-before('xxl') {
+          max-height: 60px;
+        }
+      }
+    }
+
+    &__action {
+      margin-left: auto;
+    }
+
+    // Кнопка для скролла вниз
+    &-action {
+      display: flex;
+      align-items: flex-start;
+      line-height: 1.125em;
+      color: var(--color-primary);
+      @include fontCocoSharpXS('bold');
+      font-style: normal;
+
+      @include respond-before('pre-md') {
+        font-size: 20px;
+      }
+      @include respond-before('md') {
+        font-size: 24px;
+
+        &:hover {
+          color: #fff;
+        }
+        &:hover &__icon {
+          rect {
+            fill: #fff;
+          }
+          path {
+            fill: #101010;
+          }
+        }
+      }
+
+      &__icon {
+        width: 28px;
+        height: 28px;
+        display: block;
+
+        @include respond-before('sm') {
+          width: 32px;
+          height: 32px;
+        }
+        @include respond-before('md') {
+          width: 50px;
+          height: 50px;
+        }
+        @include respond-before('xxl') {
+          width: 62px;
+          height: 62px;
+        }
+      }
+
+      &__txt {
+        width: calc(100% - 28px);
+        padding-left: 15px;
+        line-height: 1.05em;
+
+        @include respond-before('sm') {
+          width: calc(100% - 32px);
+        }
+        @include respond-before('pre-md') {
+          padding-left: 20px;
+        }
+
+        @include respond-before('md') {
+          width: calc(100% - 50px);
+        }
+        @include respond-before('xxl') {
+          font-size: 1.25em;
+          width: calc(100% - 62px);
+        }
+      }
+    }
+  }
+
+  &-intro {
+    position: relative;
+
+    &__smoke {
+      position: relative;
+      background: url("#{$images}/page-kraft/bg-cover-smoke.png") no-repeat 50% 100%;
+      height: 530px;
+      margin-top: -220px;
+      left: 0;
+      right: 0;
+      background-size: cover;
+      padding-bottom: 20px;
+
+      @include respond-before('xs') {
+        height: 570px;
+      }
+      @include respond-before('sm') {
+        height: 145vw;
+      }
+      @include respond-before('md') {
+        height: 1020px;
+      }
+      @include respond-before('lg') {
+        height: 900px;
+        background-size: auto;
+      }
+      @include respond-before('xl') {
+        height: 950px;
+        margin-top: -220px;
+      }
+      @include respond-before('xxl') {
+        margin-top: -250px;
+      }
+
+      .container {
+        position: relative;
+      }
+    }
+
+    &__float {
+      position: absolute;
+      z-index: 2;
+      top: 150px;
+      margin: auto;
+      left: 0;
+      right: 0;
+      max-width: 1200px;
+
+      @include respond-before('xs') {
+        top: 150px;
+      }
+      @include respond-before('sm') {
+        top: 170px;
+      }
+      @include respond-before('md') {
+        top: 50px;
+      }
+      @include respond-before('lg') {
+        top: -250px;
+      }
+      @include respond-before('xxl') {
+        top: -500px;
+      }
+    }
+
+    &__bg-logo {
+      position: absolute;
+      z-index: 1;
+      top: 60%;
+      left: 0;
+      right: 0;
+
+      @include respond-before('xs') {
+        top: 60%;
+      }
+      @include respond-before('sm') {
+        top: 55%;
+      }
+      @include respond-before('md') {
+        top: 40%;
+      }
+      @include respond-before('lg') {
+        top: 35%;
+      }
+
+      img {
+        display: block;
+        margin: auto;
+      }
+    }
+
+    &__hero {
+      position: relative;
+      z-index: 5;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 768px;
+      padding-top: 220px;
+
+      @include respond-before('lg') {
+        padding-top: 60px;
+      }
+      @include respond-before('xl') {
+        max-width: 800px;
+      }
+    }
+  }
+
+  &-quote {
+    margin: auto;
+    margin-bottom: 100px;
+    color: var(--color-primary);
+
+    .container {
+      @include respond-before('sm') {
+        padding-left: 50px;
+        padding-right: 50px;
+      }
+      @include respond-before('xl') {
+        padding-left: 100px;
+        padding-right: 100px;
+      }
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.15em;
+
+      @include respond-before('md') {
+        font-size: 26px;
+      }
+      @include respond-before('xl') {
+        font-size: 30px;
+      }
+      @include respond-before('xxl') {
+        font-size: 30px;
+      }
+      @include respond-before('xxxl') {
+        font-size: 35px;
+      }
+    }
+  }
+
+  &-feature-works {
+    margin: 150px auto;
+  }
+
+  &-works {
+    $self: &;
+
+    margin: auto;
+    max-width: 1150px;
+    position: relative;
+
+    @include respond-before('pre-md') {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    @include respond-before('pre-md') {
+      &:before,
+      &:after {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: -1;
+      }
+    }
+
+    &:before {
+      right: 26px;
+      bottom: 101px;
+      background: url("#{$images}/page-kraft/feature-works-bg.png") no-repeat 0% 100%;
+      background-size: contain;
+
+      @include respond-before('pre-md') {
+        bottom: 160px;
+      }
+      @include respond-before('md') {
+        bottom: 110px;
+      }
+      @include respond-before('lg') {
+        bottom: 86px;
+      }
+      @include respond-before('xl') {
+        bottom: 101px;
+      }
+    }
+
+    &:after {
+      right: 26px;
+      height: 340px;
+      top: calc(100% - 101px);
+      background: url("#{$images}/page-kraft/feature-works-bg-b.png") no-repeat 100% 0%;
+      background-size: contain;
+
+      @include respond-before('pre-md') {
+        top: calc(100% - 160px);
+      }
+      @include respond-before('md') {
+        top: calc(100% - 110px);
+      }
+      @include respond-before('lg') {
+        top: calc(100% - 86px);
+      }
+      @include respond-before('xl') {
+        top: calc(100% - 101px);
+      }
+    }
+
+    @include respond-before('md') {
+      flex-wrap: nowrap;
+    }
+
+    &__item {
+      margin-bottom: 50px;
+
+      @include respond-before('pre-md') {
+        margin: 0;
+      }
+
+      &--1 {
+        @include respond-before('pre-md') {
+          width: 36.5%;
+        }
+        #{$self}__title {
+          margin-left: 13%;
+
+          @include respond-before('pre-md') {
+            margin-left: 30px;
+          }
+          @include respond-before('md') {
+            margin-left: 55px;
+          }
+        }
+      }
+
+      &--2 {
+        @include respond-before('pre-md') {
+          width: 31.9%;
+          margin-left: 3.9%;
+          margin-right: 3.9%;
+        }
+        #{$self}__title {
+          margin-left: 10px;
+        }
+      }
+      &--3 {
+        @include respond-before('pre-md') {
+          width: 23.8%;
+        }
+
+        #{$self}__img img {
+          bottom: -10px;
+        }
+        #{$self}__title {
+          margin-left: 0;
+        }
+      }
+    }
+
+    &__img {
+      position: relative;
+
+      @include respond-before('pre-md') {
+        height: 50vw;
+      }
+      @include respond-before('lg') {
+        height: 588px;
+      }
+
+      img {
+        width: 100%;
+        @include respond-before('sm') {
+          width: auto;
+        }
+        @include respond-before('pre-md') {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+        }
+      }
+    }
+
+    &__title {
+      color: var(--color-primary);
+      font-size: 22px;
+      line-height: 1.15em;
+      position: relative;
+      padding-left: 20px;
+      margin-top: 25px;
+
+      &:before {
+        content: '*';
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      @include respond-before('xs') {
+        font-size: 24px;
+      }
+
+      @include respond-before('pre-md') {
+        font-size: 18px;
+      }
+      @include respond-before('md') {
+        font-size: 26px;
+      }
+      @include respond-before('xl') {
+        font-size: 30px;
+      }
+      @include respond-before('xxl') {
+        font-size: 30px;
+      }
+      @include respond-before('xxxl') {
+        font-size: 32px;
+      }
+    }
+  }
+
+  &-collection-works {
+    margin: auto;
+    max-width: 1150px;
+    position: relative;
+
+    &__title {
+      color: #ffad00;
+      text-transform: uppercase;
+      margin-bottom: 60px;
+
+      span {
+        display: block;
+      }
+
+      span:nth-child(1) {
+        line-height: .8em;
+        margin-left: 10px;
+        font-size: 92px;
+        @include respond-before('xs') { font-size: 111px; }
+        @include respond-before('sm') { font-size: 111px; }
+        @include respond-before('md') { font-size: 165px; margin-left: 20px;}
+        @include respond-before('lg') { font-size: 181px; margin-left: 30px;}
+        @include respond-before('xl') { font-size: 229px; }
+        @include respond-before('xxl') { font-size: 275px; }
+      }
+
+      span:nth-child(2) {
+        color: #fff;
+        line-height: .8em;
+        font-size: 50px;
+        @include respond-before('xs') { font-size: 60px; }
+        @include respond-before('sm') { font-size: 60px; }
+        @include respond-before('md') { font-size: 90px; }
+        @include respond-before('lg') { font-size: 100px; }
+        @include respond-before('xl') { font-size: 125px; }
+        @include respond-before('xxl') { font-size: 150px; }
+      }
+    }
+  }
+
+  &-collection {
+    display: flex;
+    flex-wrap: wrap;
+
+
+    &__item {
+      width: 33.333%;
+      background: no-repeat 50% 50%;
+      background-size: cover;
+      padding-bottom: 50%;
+    }
+  }
+}

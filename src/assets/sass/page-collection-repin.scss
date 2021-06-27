@@ -1,0 +1,309 @@
+@import "variables";
+@import "general/mixins";
+@mixin fontMontserrat() {
+  font-family: 'Montserrat', sans-serif;
+}
+.page-tkach {
+  --color-primary: #fa8000;
+  @include fontMontserrat();
+  $self: &;
+  background: #000; // url("#{$images}/page-kraft/bg-page.jpg") no-repeat 50% 0;
+  background-size: cover;
+
+  .container {
+    max-width: 1200px;
+
+    @include respond-before('xxl') {
+      max-width: 1200px;
+    }
+    @include respond-before('xxxl') {
+      max-width: 1400px;
+    }
+  }
+
+  .header--sticky {
+    background: #000;
+  }
+
+  p {
+    line-height: 1.5em;
+    margin: 10px 0;
+
+    @include respond-before('sm') { }
+    @include respond-before('md') { }
+
+    @include respond-before('lg') {
+      line-height: 1.35em;
+      margin: 20px 0;
+    }
+    @include respond-before('xl') {
+      font-size: 20px;
+    }
+  }
+
+  &-intro {
+    position: relative;
+    background: #000 url("#{$images}/page-tkach/screen-1-bg.jpg") no-repeat 50% 100%;
+    background-size: cover;
+    z-index: 2;
+    padding: 90px 0;
+    margin-top: -80px; // like .app CSS class in header.scss
+
+    @include respond-before('sm') {
+      margin-top: -100px;
+    }
+    @include respond-before('pre-md') {
+      margin-top: -120px;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+      background: rgba(#000, .9);
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+
+      @include respond-before('md') {
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+
+    &__left {
+      order: 2;
+
+      @include respond-before('md') {
+        width: 64%;
+        order: 1;
+      }
+    }
+    &__right {
+      order: 1;
+
+      @include respond-before('md') {
+        width: 35%;
+        display: flex;
+        order: 2;
+        margin-left: auto;
+      }
+    }
+
+    &__title {
+      @include fontMontserrat();
+      font-weight: 800;
+      color: var(--color-primary);
+      line-height: 1.25em;
+      font-size: 40px;
+      text-align: center;
+
+      @include respond-before('md') {
+        font-size: 50px;
+        text-align: left;
+      }
+      @include respond-before('lg') {
+        font-size: 60px;
+      }
+      @include respond-before('xl') {
+        font-size: 69px;
+      }
+    }
+
+    &__subtitle {
+      @include fontMontserrat();
+      line-height: 1em;
+      text-align: center;
+      font-size: 22px;
+      margin-bottom: 30px;
+
+      @include respond-before('md') {
+        margin-bottom: 40px;
+        font-size: 28px;
+        text-align: left;
+      }
+      @include respond-before('lg') {
+        font-size: 34px;
+      }
+      @include respond-before('xl') {
+        font-size: 39px;
+      }
+    }
+
+    &__signature {
+      text-align: center;
+    }
+
+  }
+
+  &-profile {
+    max-width: 150px;
+    margin: 0 auto 30px;
+
+    @include respond-before('md') {
+      margin-left: auto;
+      margin-bottom: 0;
+      max-width: 220px;
+    }
+    @include respond-before('xl') {
+      max-width: 275px;
+    }
+  }
+
+  &-avatar {
+    margin-bottom: 40px;
+  }
+
+  &-social {
+    text-align: center;
+
+    &__item {
+      margin: 0 5px;
+
+      img {
+        width: 40px;
+
+        @include respond-before('md') {
+          width: 50px;
+        }
+        @include respond-before('lg') {
+          width: 62px;
+        }
+      }
+    }
+  }
+
+  &-works {
+  }
+
+  &-work {
+    position: relative;
+    padding: 90px 0;
+    background: no-repeat 50% 50%;
+    background-size: cover;
+    z-index: 1;
+
+    @include respond-before('md') {
+      padding: 120px 0;
+    }
+    
+    &__bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+
+      &:before,
+      &:after {
+        content: '';
+        left: 0;
+        right: 0;
+        height: 60px;
+        display: block;
+        position: absolute;
+      }
+
+      &:before {
+        top: 0;
+        background: rgb(0,0,0);
+        background: -moz-linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+        background: -webkit-linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+        background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#000000",GradientType=1);
+      }
+
+      &:after {
+        bottom: 0;
+        background: rgb(0,0,0);
+        background: -moz-linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+        background: -webkit-linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+        background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#000000",GradientType=1);
+      }
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+      background: rgba(#000, .8);
+    }
+
+    .container {
+      position: relative;
+
+      @include respond-before('md') {
+        display: flex;
+        align-items: center;
+      }
+
+      &:after {
+        content: '';
+        width: 100px;
+        height: 44px;
+        display: block;
+        background: url("#{$images}/page-tkach/signature.png") no-repeat;
+        background-size: cover;
+        position: absolute;
+        bottom: -70px;
+        right: 30px;
+
+        @include respond-before('md') {
+          bottom: -10%;
+          width: 130px;
+          height: 58px;
+        }
+      }
+    }
+
+    &__img {
+      margin-bottom: 30px;
+
+      @include respond-before('md') {
+        width: 44%;
+        margin-bottom: 0;
+      }
+
+      img {
+        display: block;
+        margin: auto;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+      }
+    }
+
+    &__about {
+      @include respond-before('md') {
+        width: 49%;
+        margin-left: auto;
+      }
+    }
+
+    &__title {
+      @extend .page-tkach-intro__title;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    &__descr {
+      font-weight: 600;
+      margin-bottom: 30px;
+      font-size: 1.12em;
+      line-height: 1.25em;
+    }
+  }
+}

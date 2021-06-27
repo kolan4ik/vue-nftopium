@@ -1,0 +1,88 @@
+// Общие стили для экранов и общих вложенных элементов
+.container {
+  width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 940px;
+
+  @include respond-before('sm') {
+    //max-width: ;
+  }
+  @include respond-before('md') {
+    //max-width: ;
+  }
+  @include respond-before('xl') {
+
+    //max-width: 1140px;
+  }
+  @include respond-before('xxl') {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+
+
+.section {
+  margin-bottom: 80px;
+
+  @include respond-before('md') {
+    margin-bottom: 80px;
+  }
+
+  &-header {
+    margin-bottom: 40px;
+
+    @include respond-before('md') {
+      display: flex;
+      align-items: flex-end;
+    }
+
+    &__right {
+      margin-left: auto;
+    }
+  }
+
+  &-title {
+    margin: auto;
+
+    @include respond-before('md') {
+      max-width: 600px;
+
+      html[lang="en"] & {
+        max-width: 450px;
+      }
+    }
+    @include respond-before('xl') {
+      max-width: 720px;
+
+      html[lang="en"] & {
+        max-width: 620px;
+      }
+    }
+  }
+}
+
+
+.title {
+  margin-bottom: 1.25rem;
+}
+.title-alt {
+  margin: 0;
+  @include fontBebasNeue();
+
+  @include respond-before('sm') {
+    font-size: 26px;
+  }
+  @include respond-before('md') {
+    font-size: 30px;
+  }
+  @include respond-before('lg') {
+    font-size: 40px;
+  }
+  @include respond-before('xl') {
+    //font-size: 27px;
+  }
+}

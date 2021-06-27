@@ -1,0 +1,55 @@
+@font-face {
+  font-family: 'CocoSharpXS';
+  src: url('#{$font-path}/CocoSharpXS-Extralight.eot');
+  src: url('#{$font-path}/CocoSharpXS-Extralight.eot?#iefix') format('embedded-opentype'),
+  url('#{$font-path}/CocoSharpXS-Extralight.woff2') format('woff2'),
+  url('#{$font-path}/CocoSharpXS-Extralight.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'CocoSharpXS';
+  src: url('#{$font-path}/CocoSharpXS-Regular.eot');
+  src: url('#{$font-path}/CocoSharpXS-Regular.eot?#iefix') format('embedded-opentype'),
+  url('#{$font-path}/CocoSharpXS-Regular.woff2') format('woff2'),
+  url('#{$font-path}/CocoSharpXS-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'CocoSharpXS';
+  src: url('#{$font-path}/CocoSharpXS-Light.eot');
+  src: url('#{$font-path}/CocoSharpXS-Light.eot?#iefix') format('embedded-opentype'),
+  url('#{$font-path}/CocoSharpXS-Light.woff2') format('woff2'),
+  url('#{$font-path}/CocoSharpXS-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'CocoSharpXS';
+  src: url('#{$font-path}/CocoSharpXS-Bold.eot');
+  src: url('#{$font-path}/CocoSharpXS-Bold.eot?#iefix') format('embedded-opentype'),
+  url('#{$font-path}/CocoSharpXS-Bold.woff2') format('woff2'),
+  url('#{$font-path}/CocoSharpXS-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bebas Neue';
+  src: url('#{$font-path}/BebasNeueCyrillic.eot');
+  src: url('#{$font-path}/BebasNeueCyrillic.eot?#iefix') format('embedded-opentype'),
+  url('#{$font-path}/BebasNeueCyrillic.woff2') format('woff2'),
+  url('#{$font-path}/BebasNeueCyrillic.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+

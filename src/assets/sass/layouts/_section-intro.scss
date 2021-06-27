@@ -1,0 +1,84 @@
+.section-intro {
+  $padding: 60px;
+  padding: $padding 0;
+  overflow: hidden;
+
+  .container {
+    position: relative;
+
+    &:after {
+      content: '';
+      height: 1px;
+      position: absolute;
+      bottom: -$padding;
+      left: 10px;
+      right: -100%;
+      background: var(--color-gray);
+    }
+  }
+
+  &__box {
+    //max-width: 650px;
+    position: relative;
+    z-index: 5;
+
+    @include respond-before('lg') {
+      max-width: 610px;
+    }
+    @include respond-before('xl') {
+      max-width: 650px;
+    }
+  }
+
+  &__text {
+    letter-spacing: $letter-spc-4;
+    color: var(--menu-item-color);
+    margin-bottom: 40px;
+  }
+
+  &__bg {
+    display: none;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    z-index: -1;
+    transform: translate(3%, -50%);
+
+    @include darkmode() {
+      svg path {
+        stroke: var(--color-gray);
+      }
+    }
+
+    @include respond-before('md') {
+
+    }
+
+    @include respond-before('lg') {
+      display: block;
+      transform: translate(30%, -50%);
+    }
+    @include respond-before('xl') {
+      transform: translate(50%, -50%);
+    }
+    @include respond-before('xxl') {
+      transform: translate(15%, -50%);
+    }
+    @include respond-before('xxxl') {
+      transform: translate(20%, -50%);
+    }
+  }
+
+  &__btn {
+    width: 100%;
+
+    @include respond-before('md') {
+      max-width: 300px;
+    }
+    @include respond-before('lg') {
+      max-width: 66.7%;
+    }
+
+  }
+
+}

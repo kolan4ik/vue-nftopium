@@ -1,0 +1,71 @@
+// Кнопка по умолчанию
+@mixin btn() {
+  color: var(--base-text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-align: center;
+  transition: background $transition, border-color $transition, color $transition;
+  @include fontBebasNeue();
+  @include user-select(none);
+  font-size: 1.25em;
+  text-transform: uppercase;
+  letter-spacing: $letter-spc-2;
+  padding: 23px;
+
+  @include respond-before('sm') {
+    font-size: 1.25em;
+  }
+}
+// Кнопка со обводкой
+@mixin btn-bordered() {
+  border: 1px solid var(--btn-border);
+
+  &:hover {
+    color: var(--btn-primary-color);
+    background: var(--btn-primary-bg);
+    border-color: var(--btn-primary-border);
+  }
+}
+
+// Кнопка со обводкой
+@mixin btn-solid() {
+  color: var(--btn-primary-color);
+  background: var(--btn-primary-bg);
+  border-color: var(--btn-primary-border);
+
+  &:hover {
+    color: var(--btn-primary-color);
+    background: var(--btn-primary-bg);
+    border-color: var(--btn-primary-border);
+  }
+}
+
+// BUTTON RESET
+button,
+input[type="reset"],
+input[type="submit"],
+input[type="button"] {
+  border: 0;
+  background: transparent;
+  @include appearance(none);
+  @include user-select(none);
+}
+
+.btn {
+  @include btn;
+
+  &--bordered {
+    @include btn-bordered;
+  }
+
+  &--primary {
+    @include btn-solid;
+  }
+
+  &--wide {
+    width: 100%;
+    max-width: 300px;
+  }
+}

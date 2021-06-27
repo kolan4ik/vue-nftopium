@@ -1,0 +1,111 @@
+.app {
+  padding-top: 80px;
+
+  @include respond-before('sm') {
+    padding-top: 100px;
+  }
+  @include respond-before('pre-md') {
+    padding-top: 120px;
+  }
+}
+
+.header {
+  $self: &;
+  top: 0;
+  z-index: 99;
+  transition: padding .2s ease-in-out, top .2s ease-in-out, background .2s ease-in-out;
+  background: var(--body-bg);
+
+  &--sticky {
+    position: fixed;
+    left: 0;
+    right: 0;
+    background: var(--body-bg);
+
+    &.header--default {
+      background: transparent !important;
+    }
+  }
+
+  &-item {
+    height: 100%;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+  }
+
+  &-logo {
+
+    @include respond-before('md') {
+      margin-right: 50px;
+    }
+
+  }
+
+  &-menu {
+
+  }
+
+  &-container {
+    height: 70px;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+  }
+
+  &-search {
+    display: none;
+
+    @include respond-before('md') {
+      display: flex;
+      margin-right: 30px;
+    }
+  }
+
+  &-space {
+    margin: auto;
+  }
+
+  &-action {
+
+    @include respond-to('xs') {
+      font-size: 12px;
+      padding: 15px;
+    }
+
+    @include respond-before('xl') {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+}
+
+.logo {
+  path {
+    fill: #242426;
+
+    @include darkmode() {
+      fill: #DBC98B;//var(--color-primary);
+    }
+  }
+}
+
+
+.btn-search {
+  border: 1px solid var(--color-gray-light);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+
+  @include darkmode() {
+    border: 1px solid var(--color-gray);
+
+    path {
+      fill: var(--base-text);
+    }
+  }
+}
+

@@ -1,0 +1,214 @@
+.card-item {
+  $self: &;
+  //width: 100%;
+  //max-width: 300px;
+  position: relative;
+  padding-bottom: 30px;
+  margin-bottom: 20px;
+  transition: transform $transition, background $transition;
+  box-shadow: 0 0 16px rgba(127, 131, 146, 0.15);
+
+  @include darkmode() {
+    background: #242426;
+    box-shadow: 0 0 16px rgba(127, 131, 146, 0.15);
+  }
+
+  &__link {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+  }
+
+  &__userpic {
+    width: 26px;
+    height: 26px;
+    overflow: hidden;
+    background: no-repeat 50% 50%;
+    background-size: cover;
+    border-radius: 50%;
+  }
+
+  &__username {
+    padding-left: 10px;
+    font-size: 12px;
+    font-weight: 500;
+    width: calc(100% - 26px);
+    white-space: nowrap;
+    @include text-overflow;
+  }
+
+  &__img {
+    position: relative;
+    background: no-repeat 50% 50%;
+    background-size: auto 100%;
+    margin-bottom: 12px;
+    padding-bottom: 100%; // 1:1
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: $letter-spc-2;
+    margin-bottom: 24px;
+
+    @include respond-before("sm") {
+      min-height: 40px;
+      margin-bottom: 12px;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    flex-flow: row wrap;
+    //
+    //@include respond-before('xs') {
+    //  @include respond-to('md') {
+    //    display: block;
+    //  }
+    //}
+  }
+
+  &__footer-item {
+    width: 48%;
+
+    &:first-of-type {
+      margin-right: 4%;
+    }
+    @include respond-before("md") {
+    }
+  }
+
+  &__title,
+  &__footer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  &__label {
+    font-size: 14px;
+    color: #606060;
+    margin-bottom: 3px;
+    @include fontCocoSharpXS("light");
+  }
+
+  &__value {
+    font-size: 18px;
+    @include fontBebasNeue();
+
+    @include respond-before("xs") {
+      font-size: 22px;
+    }
+
+    @include respond-before("md") {
+      @include respond-to("lg") {
+        font-size: 18px;
+      }
+    }
+    @include respond-before("lg") {
+      @include respond-to("xl") {
+        font-size: 20px;
+      }
+    }
+
+    &--dot {
+      position: relative;
+
+      &:before {
+        content: "";
+        display: inline-block;
+        vertical-align: middle;
+        width: 0.375em;
+        height: 0.375em;
+        margin-right: 0.375em;
+        border-radius: 50%;
+        background: #ff6e00;
+      }
+    }
+  }
+
+  &:not(.card-item--alt):hover {
+    @include respond-before("lg") {
+      //background: var(--color-primary);
+      //color: #fff;
+      transform: translateY(-20px);
+    }
+  }
+
+  &--alt {
+    position: relative;
+    z-index: 2;
+    width: 250px;
+    height: 300px;
+    background: no-repeat 50% 50%;
+    background-size: cover;
+    display: flex;
+    flex-flow: column wrap;
+    padding: 0;
+
+    @include respond-before("xs") {
+      width: 270px;
+      height: 300px;
+    }
+    @include respond-before("md") {
+      width: 270px;
+      height: 300px;
+    }
+    @include respond-before("lg") {
+      width: 300px;
+      height: 380px;
+    }
+
+    > * {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity $transition;
+    }
+
+    &:hover {
+      color: #fff;
+
+      &:before {
+        content: "";
+        background: var(--color-primary);
+        opacity: 0.9;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+      }
+
+      > * {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      #{$self}__header {
+        padding: 20px;
+      }
+      #{$self}__title {
+        margin: auto 0;
+      }
+      #{$self}__footer {
+        margin-top: auto;
+        display: flex !important;
+      }
+      #{$self}__footer-item {
+        width: 48%;
+        &:first-of-type {
+          margin-right: 4%;
+        }
+      }
+    }
+  }
+}
