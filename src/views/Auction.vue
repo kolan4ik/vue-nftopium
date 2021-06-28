@@ -5,10 +5,7 @@
         <div class="container container--new">
           <div class="action-page_left">
             <div class="action-page_left-btn">
-              <a
-                data-fancybox="gallery"
-                v-bind:href="getImgUrl(auction.data.localImage)"
-              >
+              <a data-fancybox v-bind:href="getImgUrl(auction.data.localImage)">
                 <svg
                   width="14px"
                   height="14"
@@ -55,7 +52,7 @@
               </a>
             </div>
             <div
-              data-fancybox="gallery2"
+              data-fancybox
               :data-src="getImgUrl(auction.data.localImage)"
               class="action-page_left_in"
             >
@@ -85,7 +82,16 @@
             </div>
           </div>
           <div class="action-page_right">
-            <div class="tag"><img v-bind:src="tagImg" alt="" />{{ tag }}</div>
+            <router-link
+              class="tag"
+              :to="{
+                path: `/${authorInfo.name.toLowerCase()}/`,
+              }"
+            >
+              <img v-bind:src="getImgUrl(authorInfo.image)" alt="" />@{{
+                authorInfo.name.toLowerCase()
+              }}
+            </router-link>
             <h1>{{ auction.data.name }}</h1>
             <ul class="action-page_right_count">
               <li>
@@ -153,19 +159,25 @@
                   target="_blank"
                   v-bind:href="artworkInformation.author.cabinetLink"
                   class="photo"
-                  ><img v-bind:src="artworkInformation.author.photo" alt=""
+                  ><img v-bind:src="getImgUrl(authorInfo.image)" alt=""
                 /></a>
                 <div class="info">
-                  <b>ID: 3592152</b>
-                  <a
-                    target="_blank"
+                  <b>ID: {{ authorInfo._id }}</b>
+                  <router-link
                     class="author-name"
-                    v-bind:href="artworkInformation.author.cabinetLink"
-                    >{{ artworkInformation.author.name }}</a
+                    :to="{
+                      path: `/${authorInfo.name.toLowerCase()}/`,
+                    }"
                   >
-                  <a target="_blank" class="author-link" href="#">{{
-                    artworkInformation.author.link
-                  }}</a>
+                    {{ authorInfo.name.toLowerCase() }}
+                  </router-link>
+                  <router-link
+                    class="author-link"
+                    :to="{
+                      path: `/${authorInfo.name.toLowerCase()}/`,
+                    }"
+                    >@{{ authorInfo.name.toLowerCase() }}
+                  </router-link>
                 </div>
 
                 <div class="creator-info_follow">
@@ -322,10 +334,20 @@ export default {
   computed: {
     ...mapGetters(["getAuction"]),
     ...mapState(["auction"]),
+
+    authorInfo() {
+      const info = this.$store.getters.getAuthor(this.userId);
+      // eslint-disable-next-line no-debugger
+      debugger;
+      return !info ? {} : info;
+    },
   },
   created() {
     if (this.auction.isLoading) {
       this.GET_AUCTION();
+    }
+    if (!this.authorInfo.name) {
+      this.GET_AUTHOR(this.userId);
     }
   },
   mounted() {
@@ -396,7 +418,7 @@ export default {
     clearInterval(this.timeinterval);
   },
   methods: {
-    ...mapActions(["GET_AUCTION"]),
+    ...mapActions(["GET_AUCTION", "GET_AUTHOR"]),
 
     handleBit: function () {
       this.isVisiblePopup = true;
@@ -410,13 +432,12 @@ export default {
       }
     },
     getImgUrl: function (pet) {
-      // eslint-disable-next-line no-debugger
-      debugger;
       return `https://api.test.nftopium.io/${pet}`;
     },
   },
   data: function () {
     return {
+      userId: "60d4523d72645378e4c41d8f",
       info: null,
       timeinterval: "",
       isVisiblePopup: false,

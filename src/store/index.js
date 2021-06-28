@@ -37,19 +37,9 @@ export const store = new Vuex.Store({
   },
   mutations: {
     SET_AUTHORS(state, payload) {
-      const isIndex = state.authors.findIndex((item) => {
-        return item._id === payload._id;
-      });
-      if (!state.authors.length) {
-        state.authors = [{ ...payload }];
-      } else {
-        if (isIndex >= 0) {
-          state.authors = [{ ...payload }];
-        } else {
-          const newState = [...state.authors, payload];
-          state.authors = newState;
-        }
-      }
+      // eslint-disable-next-line no-debugger
+      debugger;
+      state.authors = [...payload];
     },
     SET_AUTHOR(state, payload) {
       const isIndex = state.authors.findIndex((item) => {
@@ -76,16 +66,20 @@ export const store = new Vuex.Store({
       // eslint-disable-next-line no-debugger
       debugger;
       state.collections = {
-        [payload._id]: payload,
+        [payload._id]: [payload],
       };
     },
   },
   actions: {
-    GET_AUTHORS: async ({ commit }, payload) => {
-      const { data } = await axios.get(`${API_URL}/collection/${payload}`);
+    GET_AUTHORS: async ({ commit }) => {
+      const { data } = await axios.get(`${API_URL}/author/list`);
+      // eslint-disable-next-line no-debugger
+      debugger;
       commit("SET_AUTHORS", data);
     },
     GET_AUTHOR: async ({ commit }, payload) => {
+      // eslint-disable-next-line no-debugger
+      debugger;
       const { data } = await axios.get(`${API_URL}/author/${payload}`);
       commit("SET_AUTHOR", data);
     },

@@ -10,7 +10,7 @@
     </div>
     <div class="m-b-60"></div>
 
-    <div v-for="item in collections.data" :key="item.id">
+    <div v-for="item in authors" :key="item.id">
       <article
         class="collection-preview animate__ animated"
         :class="`collection-preview-${item.name.toLowerCase()}`"
@@ -39,36 +39,26 @@
         </router-link>
       </article>
     </div>
-
-    <router-link
-      :to="{
-        name: 'auction',
-        params: { auctionId: '60d4523d72645378e4c41d8f' },
-      }"
-    >
-      Aукцион
-    </router-link>
   </div>
 </template>
 
 <script>
 import { anim } from "../assets/js/global.js";
+// eslint-disable-next-line no-unused-vars
 import { mapActions, mapState, mapGetters } from "vuex";
 
 export default {
   name: "Home",
 
   computed: {
-    ...mapGetters(["getCollections"]),
-    ...mapState(["collections"]),
+    ...mapGetters(["getAuthors"]),
+    ...mapState(["authors"]),
   },
   created() {
-    if (this.collections.isLoading) {
-      this.GET_COLLECTIONS();
-    }
+    this.GET_AUTHORS();
   },
   methods: {
-    ...mapActions(["GET_COLLECTIONS"]),
+    ...mapActions(["GET_AUTHORS"]),
   },
   mounted() {
     const $animateEls = document.querySelectorAll(".animated");

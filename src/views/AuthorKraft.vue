@@ -121,16 +121,18 @@
     <div class="page-kraft-collection-works" id="collection">
       <div class="container">
         <div class="page-kraft-collection-works__title animated">
-          <span>{{ authorInfo.name }} </span>
+          <span>{{ authorCollectionList[0].name }} </span>
           <span>Collection</span>
         </div>
         <div class="page-kraft-collection animated">
-          <div
+          <router-link
             v-for="collection in authorCollectionList"
             :key="collection._id"
             class="page-kraft-collection__item"
             :style="`background-image: url(https://api.test.nftopium.io${collection.image})`"
-          ></div>
+            :to="{ name: 'auction', params: { auctionId: collection._id } }"
+          >
+          </router-link>
         </div>
       </div>
     </div>
@@ -166,8 +168,13 @@ export default {
     },
   },
   created() {
-    this.GET_AUTHOR(this.userId);
-    this.GET_COLLECTIONS("60d4523e72645378e4c41d90");
+    // eslint-disable-next-line no-debugger
+    if (!this.authorInfo.name) {
+      this.GET_AUTHOR(this.userId);
+    }
+    if (!this.authorCollectionList.length) {
+      this.GET_COLLECTIONS("60d4523e72645378e4c41d90");
+    }
   },
   methods: {
     ...mapActions(["GET_AUTHOR"]),
