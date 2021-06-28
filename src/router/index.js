@@ -1,7 +1,12 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home";
-import Author from "../views/Author.vue";
+import Author from "../views/Author";
+import AuthorKraft from "../views/AuthorKraft";
+import AuthorLamanov from "../views/AuthorLamanov";
+import AuthorGolopolosov from "../views/AuthorGolopolosov";
+import AuthorOdintri from "../views/AuthorOdintri";
+import AuthorTkach from "../views/AuthorTkach";
 import CollectionAutor from "../views/CollectionAutor";
 import WhitePaper from "../views/WhitePaper";
 import Auction from "../views/Auction";
@@ -13,6 +18,37 @@ const routes = [
     path: "/",
     name: "home",
     component: Home,
+  },
+  {
+    path: "/u.kraft/",
+    name: "authorKraft",
+    props: true,
+    component: AuthorKraft,
+  },
+  {
+    path: "/odintri/",
+    name: "authorOdintri",
+    props: true,
+    component: AuthorOdintri,
+  },
+  {
+    path: "/tkach/",
+    name: "authorTkach",
+    props: true,
+    component: AuthorTkach,
+  },
+
+  {
+    path: "/golopolosov/",
+    name: "authorGolopolosov",
+    props: true,
+    component: AuthorGolopolosov,
+  },
+  {
+    path: "/lamanov/",
+    name: "authorLamanov",
+    props: true,
+    component: AuthorLamanov,
   },
   {
     path: "/collection/:collectionId",

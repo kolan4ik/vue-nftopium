@@ -20,7 +20,8 @@
     position: fixed;
     left: 0;
     right: 0;
-    background: var(--body-bg);
+    background: rgba(15,15,15,  0.5) !important;
+    backdrop-filter: blur(20px) !important;
 
     &.header--default {
       background: transparent !important;

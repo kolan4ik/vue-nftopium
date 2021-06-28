@@ -306,8 +306,6 @@ export default {
     axios
       .get(`${API_URL}/asset/list?sort=dateAsc&skip=0&limit=10`)
       .then((response) => {
-        // eslint-disable-next-line no-debugger
-        debugger;
         this.info = response.data;
       });
   },
@@ -316,6 +314,8 @@ export default {
       offset: 100,
     });
     wow.init();
+
+    document.querySelector(".app").classList.remove("page-kraft");
 
     function CollectionIntroAnimation() {
       const logo = document.querySelector(".collection-page-intro__bg-logo");
@@ -372,6 +372,22 @@ export default {
           logo.style.transform = "translateY(" + scrolled * 0.1 + "px" + ")";
         }, 14)
       );
+      this.$once("hook:destroyed", () => {
+        // eslint-disable-next-line no-debugger
+        debugger;
+        window.removeListener(
+          "scroll",
+          throttle(function () {
+            const scrolled = window.pageYOffset;
+            const logo = document.querySelector(
+              ".collection-page-intro__bg-logo"
+            );
+            const pers = document.querySelector(".collection-page-intro__pers");
+            pers.style.transform = "translateY(" + -scrolled * 0.1 + "px" + ")";
+            logo.style.transform = "translateY(" + scrolled * 0.1 + "px" + ")";
+          }, 14)
+        );
+      });
     }
 
     const $animateEls = document.querySelectorAll(".animated");

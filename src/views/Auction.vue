@@ -389,7 +389,7 @@ export default {
     copyBtn.addEventListener("click", copyText);
   },
 
-  destroyed() {
+  beforeDestroy() {
     document
       .querySelector(".header-container")
       .classList.remove("container--new");

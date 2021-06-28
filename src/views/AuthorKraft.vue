@@ -121,33 +121,15 @@
     <div class="page-kraft-collection-works" id="collection">
       <div class="container">
         <div class="page-kraft-collection-works__title animated">
-          <span>X FACE</span>
+          <span>{{ authorInfo.name }} </span>
           <span>Collection</span>
         </div>
         <div class="page-kraft-collection animated">
           <div
+            v-for="collection in authorCollectionList"
+            :key="collection._id"
             class="page-kraft-collection__item"
-            style="background-image: url(../assets/images/page-kraft/nft-1.jpg)"
-          ></div>
-          <div
-            class="page-kraft-collection__item"
-            style="background-image: url(../assets/images/page-kraft/nft-2.jpg)"
-          ></div>
-          <div
-            class="page-kraft-collection__item"
-            style="background-image: url(../assets/images/page-kraft/nft-3.png)"
-          ></div>
-          <div
-            class="page-kraft-collection__item"
-            style="background-image: url(../assets/images/page-kraft/nft-4.jpg)"
-          ></div>
-          <div
-            class="page-kraft-collection__item"
-            style="background-image: url(../assets/images/page-kraft/nft-5.jpg)"
-          ></div>
-          <div
-            class="page-kraft-collection__item"
-            style="background-image: url(../assets/images/page-kraft/nft-6.png)"
+            :style="`background-image: url(https://api.test.nftopium.io${collection.image})`"
           ></div>
         </div>
       </div>
@@ -158,30 +140,38 @@
 <script>
 import { WOW } from "wowjs";
 import { gsap } from "gsap";
-import { mapActions, mapState } from "vuex";
+import { mapActions } from "vuex";
 
 import "../assets/sass/page-collection-kraft.scss";
 
 import { anim, throttle } from "../assets/js/global";
 
 export default {
-  name: "Author",
+  name: "AuthorKraft",
+  data() {
+    return {
+      userId: "60d4523d72645378e4c41d8f",
+    };
+  },
   computed: {
-    ...mapState(["authors"]),
     authorInfo() {
-      const { authorId } = this.$route.params;
-      const info = this.$store.getters.getAuthors.find((item) => {
-        return item._id === authorId;
-      });
+      const info = this.$store.getters.getAuthor(this.userId);
+      return !info ? {} : info;
+    },
+    authorCollectionList() {
+      const info = this.$store.getters.getCollections(
+        "60d4523e72645378e4c41d90"
+      );
       return !info ? {} : info;
     },
   },
   created() {
-    const { authorId } = this.$route.params;
-    this.GET_AUTHORS(authorId);
+    this.GET_AUTHOR(this.userId);
+    this.GET_COLLECTIONS("60d4523e72645378e4c41d90");
   },
   methods: {
-    ...mapActions(["GET_AUTHORS"]),
+    ...mapActions(["GET_AUTHOR"]),
+    ...mapActions(["GET_COLLECTIONS"]),
     getImgUrl: function (pet) {
       return `https://api.test.nftopium.io${pet}`;
     },

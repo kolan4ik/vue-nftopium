@@ -27,7 +27,8 @@
   }
 
   .header--sticky {
-    background: #020204;
+    background: rgba(15,15,15,  0.5);
+    backdrop-filter: blur(20px);
   }
 
   .collection-page {
