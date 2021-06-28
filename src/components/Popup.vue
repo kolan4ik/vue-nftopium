@@ -125,8 +125,7 @@ export default {
         value: web3.toWei(this.isActiveBid, "ether"),
       };
 
-      // eslint-disable-next-line no-unused-vars
-      const txHash = ethereum
+      ethereum
         .request({
           method: "eth_sendTransaction",
           params: [transactionParameters],

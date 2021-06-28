@@ -11,7 +11,11 @@ export const store = new Vuex.Store({
     collections: {},
     auction: {
       isLoading: true,
-      data: {},
+      data: {
+        lastBet: {
+          value: 0,
+        },
+      },
     },
     authors: [],
   },

@@ -96,8 +96,9 @@
             <ul class="action-page_right_count">
               <li>
                 <b>Current bid:</b>
-                {{ auction.data.royalty }} ETH
-                <p>{{ auction.data.price }} $</p>
+                {{ auction.data.lastBet.value.toFixed(4) }}
+                {{ auction.data.lastBet.symbol }}
+                <p>{{ auction.data.lastBet.price }} $</p>
               </li>
               <li>
                 <b>Ending in:</b>
@@ -107,9 +108,12 @@
             <div class="place-bid">
               <div class="title">Place a bid</div>
               <div class="center">
-                <div class="place-bid_left">
+                <div v-if="auction.isLoading" class="place-bid_left">
                   You must bid at least:
-                  <p>{{ bidLeast }}</p>
+                  <p>
+                    {{ auction.data.lastBet.value.toFixed(4) }}
+                    {{ auction.data.lastBet.symbol }}
+                  </p>
                 </div>
                 <div class="place-bid_in">
                   <span>{{ bidCash }}</span>
@@ -119,8 +123,8 @@
                       type="number"
                       v-model="bid"
                     />
-                    <i
-                      >ETH
+                    <i>
+                      {{ auction.data.lastBet.symbol }}
                       <svg
                         width="24"
                         height="24"
