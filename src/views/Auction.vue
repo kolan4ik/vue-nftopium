@@ -94,7 +94,7 @@
             </router-link>
             <h1>{{ auction.data.name }}</h1>
             <ul class="action-page_right_count">
-              <li>
+              <li v-if="!auction.isLoading">
                 <b>Current bid:</b>
                 {{ auction.data.lastBet.value.toFixed(4) }}
                 {{ auction.data.lastBet.symbol }}
@@ -108,7 +108,7 @@
             <div class="place-bid">
               <div class="title">Place a bid</div>
               <div class="center">
-                <div v-if="auction.isLoading" class="place-bid_left">
+                <div v-if="!auction.isLoading" class="place-bid_left">
                   You must bid at least:
                   <p>
                     {{ auction.data.lastBet.value.toFixed(4) }}
@@ -123,7 +123,7 @@
                       type="number"
                       v-model="bid"
                     />
-                    <i>
+                    <i v-if="!auction.isLoading">
                       {{ auction.data.lastBet.symbol }}
                       <svg
                         width="24"
