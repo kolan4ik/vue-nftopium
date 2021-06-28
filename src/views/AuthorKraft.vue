@@ -56,7 +56,7 @@
           <div class="page-kraft-intro__bg-logo">
             <img src="../assets/images/page-kraft/bg-logo.png" alt="" />
           </div>
-          <div class="page-kraft-intro__hero">
+          <div v-if="!!authorInfo.image" class="page-kraft-intro__hero">
             <img :src="getImgUrl(authorInfo.image)" alt="" />
           </div>
         </div>
@@ -120,11 +120,14 @@
 
     <div class="page-kraft-collection-works" id="collection">
       <div class="container">
-        <div class="page-kraft-collection-works__title animated">
+        <div v-cloak class="page-kraft-collection-works__title animated">
           <span>{{ authorCollectionList[0].name }} </span>
           <span>Collection</span>
         </div>
-        <div class="page-kraft-collection animated">
+        <div
+          v-if="authorCollectionList[0].name.length"
+          class="page-kraft-collection animated"
+        >
           <router-link
             v-for="collection in authorCollectionList"
             :key="collection._id"
@@ -164,15 +167,14 @@ export default {
       const info = this.$store.getters.getCollections(
         "60d4523e72645378e4c41d90"
       );
-      return !info ? {} : info;
+      return !info ? [{ name: "" }] : info;
     },
   },
   created() {
-    // eslint-disable-next-line no-debugger
     if (!this.authorInfo.name) {
       this.GET_AUTHOR(this.userId);
     }
-    if (!this.authorCollectionList.length) {
+    if (this.authorCollectionList[0].name === "") {
       this.GET_COLLECTIONS("60d4523e72645378e4c41d90");
     }
   },

@@ -123,8 +123,6 @@ export default {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
 
-      // eslint-disable-next-line no-debugger
-      debugger;
       console.log(signer);
       const { web3 } = window;
       const transactionParameters = {

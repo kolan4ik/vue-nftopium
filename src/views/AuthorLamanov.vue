@@ -222,11 +222,7 @@ export default {
       offset: 100,
     });
     wow.init();
-    // eslint-disable-next-line no-debugger
-    debugger;
     $animateEls.forEach((item) => {
-      // eslint-disable-next-line no-debugger
-      debugger;
       anim(item, "fadeIn");
     });
   },

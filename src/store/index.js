@@ -37,8 +37,6 @@ export const store = new Vuex.Store({
   },
   mutations: {
     SET_AUTHORS(state, payload) {
-      // eslint-disable-next-line no-debugger
-      debugger;
       state.authors = [...payload];
     },
     SET_AUTHOR(state, payload) {
@@ -63,8 +61,6 @@ export const store = new Vuex.Store({
       };
     },
     SET_COLLECTIONS(state, payload) {
-      // eslint-disable-next-line no-debugger
-      debugger;
       state.collections = {
         [payload._id]: [payload],
       };
@@ -73,13 +69,9 @@ export const store = new Vuex.Store({
   actions: {
     GET_AUTHORS: async ({ commit }) => {
       const { data } = await axios.get(`${API_URL}/author/list`);
-      // eslint-disable-next-line no-debugger
-      debugger;
       commit("SET_AUTHORS", data);
     },
     GET_AUTHOR: async ({ commit }, payload) => {
-      // eslint-disable-next-line no-debugger
-      debugger;
       const { data } = await axios.get(`${API_URL}/author/${payload}`);
       commit("SET_AUTHOR", data);
     },

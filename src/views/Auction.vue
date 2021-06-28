@@ -337,9 +337,7 @@ export default {
 
     authorInfo() {
       const info = this.$store.getters.getAuthor(this.userId);
-      // eslint-disable-next-line no-debugger
-      debugger;
-      return !info ? {} : info;
+      return !info ? { name: "" } : info;
     },
   },
   created() {
@@ -355,7 +353,9 @@ export default {
       .querySelector(".header .container")
       .classList.add("container--new");
 
+    // eslint-disable-next-line no-unused-vars
     const th = this;
+    // eslint-disable-next-line no-unused-vars
     function getTimeRemaining(endtime) {
       const total = Date.parse(endtime) - Date.parse(new Date());
       const seconds = Math.floor((total / 1000) % 60);
