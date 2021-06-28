@@ -42,7 +42,7 @@
             />
           </svg>
           <span class="page-kraft-top-action__txt"
-            >{{ authorInfo.name }} <br />COLLECTION</span
+            >{{ authorCollectionList[0].name }} <br />COLLECTION</span
           >
         </a>
       </div>

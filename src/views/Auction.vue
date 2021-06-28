@@ -427,9 +427,9 @@ export default {
       this.isVisiblePopup = false;
     },
     changeBit: function () {
-      if (parseInt(this.bid) < parseInt(this.currentBid)) {
-        this.bid = this.currentBid;
-      }
+      //if (parseInt(this.bid) < parseInt(this.currentBid)) {
+      //this.bid = this.currentBid;
+      //}
     },
     getImgUrl: function (pet) {
       return `https://api.test.nftopium.io/${pet}`;

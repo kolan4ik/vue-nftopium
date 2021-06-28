@@ -373,8 +373,6 @@ export default {
         }, 14)
       );
       this.$once("hook:destroyed", () => {
-        // eslint-disable-next-line no-debugger
-        debugger;
         window.removeListener(
           "scroll",
           throttle(function () {

@@ -78,8 +78,6 @@
 
 <script>
 import VueMetamask from "vue-metamask";
-// eslint-disable-next-line no-unused-vars
-import { ethers } from "ethers";
 
 export default {
   name: "Popup",
@@ -120,19 +118,15 @@ export default {
     },
 
     sentTransfer: function () {
-      const provider = new ethers.providers.Web3Provider(window.ethereum);
-      const signer = provider.getSigner();
-
-      console.log(signer);
-      const { web3 } = window;
+      const { web3, ethereum } = window;
       const transactionParameters = {
         to: "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-        from: ethers.selectedAddress,
-        value: web3.toWei("1", "ether"),
+        from: ethereum.selectedAddress,
+        value: web3.toWei(this.isActiveBid, "ether"),
       };
 
       // eslint-disable-next-line no-unused-vars
-      const txHash = ethers
+      const txHash = ethereum
         .request({
           method: "eth_sendTransaction",
           params: [transactionParameters],
