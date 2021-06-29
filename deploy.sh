@@ -10,5 +10,5 @@
     git init
     git add -A
     git commit -m 'deploy'
-    git push -f https://github.com/kolan4ik/vue-nftopium.git master:gh-pages
+    git push -f https://github.com/kolan4ik/vue-nftopium.git main:gh-pages
     cd -

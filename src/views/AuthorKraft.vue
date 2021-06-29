@@ -47,19 +47,17 @@
         </a>
       </div>
     </div>
-    <div class="page-kraft-intro animated">
+    <div v-if="!!authorInfo.image" class="page-kraft-intro animated">
       <div class="page-kraft-intro__float">
         <img src="../assets/images/page-kraft/bg-cover-float.png" alt="" />
       </div>
-      <div class="page-kraft-intro__smoke">
-        <div class="container">
-          <div class="page-kraft-intro__bg-logo">
-            <img src="../assets/images/page-kraft/bg-logo.png" alt="" />
-          </div>
-          <div v-if="!!authorInfo.image" class="page-kraft-intro__hero">
-            <img :src="getImgUrl(authorInfo.image)" alt="" />
-          </div>
-        </div>
+      <div
+        :style="`background: url(${getImgUrl(
+          authorInfo.image
+        )}) no-repeat top center;background-size: cover;`"
+        class="page-kraft-intro__smoke"
+      >
+        <div class="container"></div>
       </div>
     </div>
     <div class="page-kraft-quote animated">
